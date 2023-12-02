@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { store } from "@/redux/store";
 import { ReactNode } from "react";
@@ -9,10 +10,15 @@ const RootProvider = ({
   children: ReactNode;
 }) => {
   return (
-    <Provider store={store}>
-      <Toaster />
-      {children}
-    </Provider>
+    <ThemeProvider
+      defaultTheme="dark"
+      storageKey="vite-ui-theme"
+    >
+      <Provider store={store}>
+        <Toaster />
+        {children}
+      </Provider>
+    </ThemeProvider>
   );
 };
 
