@@ -5,10 +5,10 @@ import SearchBar from "../ui/Searchbar";
 const Navbar = () => {
   return (
     <>
-      <div className="w-[90%] my-3 mx-auto">
+      <div className="w-[95%] md:w-[90%] my-3 mx-auto">
         <div className="flex items-center justify-between w-full">
           <SearchBar />
-          <div className="flex items-center justify-center space-x-5">
+          <div className="flex items-center justify-center space-x-2 md:space-x-5">
             <ModeToggle />
             <TemperatureUnitChanger />
           </div>

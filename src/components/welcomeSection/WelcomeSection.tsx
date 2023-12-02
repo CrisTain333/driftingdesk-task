@@ -8,7 +8,7 @@ const WelcomeSection = () => {
               Welcome to SwiftSky
             </p>
 
-            <p className="my-5 text-2xl">
+            <p className="my-5 text-2xl text-gray-500">
               {" "}
               – Where Forecasting Meets Finesse! 🌦️ Enter
               your location and embark on a seamless journey

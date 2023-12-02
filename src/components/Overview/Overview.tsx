@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/table";
 import Loader from "../ui/Loader";
 import WelcomeSection from "../welcomeSection/WelcomeSection";
+import NotFound from "../NotFound/NotFound";
 
 const Overview = () => {
   const { data, isCityNotFound, isDataLoading } =
@@ -21,11 +22,7 @@ const Overview = () => {
   if (!isDataLoading && isCityNotFound) {
     return (
       <>
-        <div className="flex items-center justify-center">
-          <h1 className="text-3xl text-red-500 font-bold">
-            City Not Found
-          </h1>
-        </div>
+        <NotFound />
       </>
     );
   }

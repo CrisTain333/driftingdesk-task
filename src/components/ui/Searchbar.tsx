@@ -92,13 +92,13 @@ const SearchBar = () => {
       <div className="">
         <form
           onSubmit={handleSubmit}
-          className="flex items-center justify-between space-x-3"
+          className="flex items-center justify-between space-x-2 md:space-x-3"
         >
           <Input
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="City name"
-            className="w-[50vw]  md:w-[30vw]"
+            className="w-[35vw]  md:w-[30vw]"
           />
           <Button
             type="submit"
