@@ -24,7 +24,7 @@ const Home = () => {
       ) : (
         <>
           <main className="w-[90%] mx-auto">
-            <h1 className="text-3xl font-medium my-8">
+            <h1 className="text-3xl font-medium my-8 text-center">
               Today Overview
             </h1>
             <Overview

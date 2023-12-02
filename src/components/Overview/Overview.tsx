@@ -35,7 +35,7 @@ const Overview = ({
           {" "}
           <div className="grid grid-cols-12 w-full  gap-5 ">
             <div className="col-span-12 md:col-span-3">
-              <div className="border-2 bg-gray-50 rounded-md p-7">
+              <div className="border-2 bg-gray-50 dark:bg-gray-900 rounded-md p-7">
                 <img
                   src={data?.current?.condition?.icon}
                   alt="condition_IMAGE"
@@ -67,7 +67,7 @@ const Overview = ({
                   <div className="flex items-center font-medium">
                     <CalendarDays size={20} />
 
-                    <p className="ml-2">
+                    <p className="ml-2 text-gray-700 dark:text-gray-400">
                       {data?.location?.localtime}
                     </p>
                   </div>
@@ -76,82 +76,82 @@ const Overview = ({
             </div>
             <div className=" col-span-12  md:col-span-9 ">
               <div className="grid grid-cols-12 gap-8">
-                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 rounded-md">
+                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
                   <div className="flex space-x-5 items-center justify-start">
                     <div>
                       <Wind size={50} />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-gray-800 text-xl font-semibold">
+                      <h3 className="text-gray-800 dark:text-white text-xl font-semibold">
                         Wind Speed
                       </h3>
 
-                      <p className="font-medium text-lg">
+                      <p className="font-medium text-lg text-gray-700 dark:text-gray-400">
                         {data?.current?.wind_mph}{" "}
                         <span>Km/h</span>
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 rounded-md">
+                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
                   <div className="flex space-x-5 items-center justify-start">
                     <div>
                       <Droplets size={50} />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-gray-800 text-xl font-semibold">
+                      <h3 className="text-gray-800 dark:text-white text-xl font-semibold">
                         Humidity
                       </h3>
 
-                      <p className="font-medium text-lg">
+                      <p className="font-medium text-lg text-gray-700 dark:text-gray-400">
                         {data?.current?.humidity}%
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 rounded-md">
+                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
                   <div className="flex space-x-5 items-center justify-start">
                     <div>
                       <Gauge size={50} />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-gray-800 text-xl font-semibold">
+                      <h3 className="text-gray-800 dark:text-white text-xl font-semibold">
                         Pressure
                       </h3>
 
-                      <p className="font-medium text-lg">
+                      <p className="font-medium text-lg text-gray-700 dark:text-gray-400">
                         {data?.current?.pressure_mb} hPa
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 rounded-md">
+                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
                   <div className="flex space-x-5 items-center justify-start">
                     <div>
                       <ArrowUpRightFromCircle size={50} />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-gray-800 text-xl font-semibold">
+                      <h3 className="text-gray-800 dark:text-white text-xl font-semibold">
                         Direction
                       </h3>
 
-                      <p className="font-medium text-lg">
+                      <p className="font-medium text-lg text-gray-700 dark:text-gray-400">
                         {data?.current?.wind_dir}
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 rounded-md">
+                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
                   <div className="flex space-x-5 items-center justify-start">
                     <div>
                       <Sunrise size={50} />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-gray-800 text-xl font-semibold">
+                      <h3 className="text-gray-800 dark:text-white text-xl font-semibold">
                         Sunrise
                       </h3>
 
-                      <p className="font-medium text-lg">
+                      <p className="font-medium text-lg text-gray-700 dark:text-gray-400">
                         {
                           data?.forecast?.forecastday[0]
                             ?.astro.sunrise
@@ -160,17 +160,17 @@ const Overview = ({
                     </div>
                   </div>
                 </div>
-                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 rounded-md">
+                <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
                   <div className="flex space-x-5 items-center justify-start">
                     <div>
                       <Sunset size={50} />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-gray-800 text-xl font-semibold">
+                      <h3 className="text-gray-800 dark:text-white text-xl font-semibold">
                         Sunset
                       </h3>
 
-                      <p className="font-medium text-lg">
+                      <p className="font-medium text-lg text-gray-700 dark:text-gray-400">
                         {
                           data?.forecast?.forecastday[0]
                             ?.astro?.sunset
