@@ -9,6 +9,8 @@ import {
   setWeatherData,
 } from "@/redux/feature/weather/weatherSlice";
 import { getWeather } from "@/service/api";
+import { useToast } from "./use-toast";
+import { ToastAction } from "./toast";
 
 const SearchBar = () => {
   const [inputValue, setInputValue] =
@@ -17,13 +19,20 @@ const SearchBar = () => {
     React.useState<boolean>(false);
 
   const dispatch = useAppDispatch();
+  const { toast } = useToast();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
     dispatch(changeLoadingState(true));
     if (inputValue === undefined || inputValue === "") {
-      alert("Please enter a city name ");
+      toast({
+        duration: 2000,
+        variant: "destructive",
+        title: "Please enter city Name",
+        description:
+          "There was a problem with your request.",
+      });
       setIsLoading(false);
       dispatch(changeLoadingState(false));
       return;
@@ -33,7 +42,23 @@ const SearchBar = () => {
       const data = await getWeather(inputValue);
 
       if (data?.error) {
-        // alert("Please enter a valid city name ");
+        toast({
+          duration: 2000,
+          variant: "destructive",
+          title:
+            data?.error?.response?.data?.error?.message,
+          description: "Please Enter a Valid City",
+          action: (
+            <ToastAction
+              altText="Try again"
+              onClick={() => {
+                setInputValue("");
+              }}
+            >
+              Try again
+            </ToastAction>
+          ),
+        });
         setIsLoading(false);
         dispatch(changeLoadingState(false));
         dispatch(setIsCityNotFound(true));
@@ -47,7 +72,18 @@ const SearchBar = () => {
     } catch (error) {
       setIsLoading(false);
       dispatch(changeLoadingState(false));
-      console.log(error);
+      toast({
+        duration: 2000,
+        variant: "destructive",
+        title: "Internal Error",
+        description:
+          "There was a problem with server , we are working on it. Please try again later",
+        action: (
+          <ToastAction altText="Try again">
+            Try again
+          </ToastAction>
+        ),
+      });
     }
   };
 
