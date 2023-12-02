@@ -1,10 +1,10 @@
+import Navbar from "@/components/Navbar/Navbar";
 import Overview from "@/components/Overview/Overview";
-import SearchBar from "@/components/ui/Searchbar";
 
 const Home = () => {
   return (
     <div>
-      <SearchBar />
+      <Navbar />
       <Overview />
     </div>
   );

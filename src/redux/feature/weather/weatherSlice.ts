@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { TemperatureUnitEnums } from "@/enums/TemperatureUnit";
 import {
   PayloadAction,
   createSlice,
@@ -6,14 +7,16 @@ import {
 
 export interface WeatherState {
   data: any | null;
-  isDataLoading: boolean;
   isCityNotFound: boolean;
+  isDataLoading: boolean;
+  temperatureUnit: string;
 }
 
 const initialState: WeatherState = {
   data: null,
-  isDataLoading: false,
   isCityNotFound: false,
+  isDataLoading: false,
+  temperatureUnit: TemperatureUnitEnums.Celsius,
 };
 
 export const weatherSlice = createSlice({
@@ -37,6 +40,15 @@ export const weatherSlice = createSlice({
       console.log(action);
       state.isCityNotFound = action.payload;
     },
+    changeTemperatureUnit: (
+      state,
+      action: PayloadAction<
+        | TemperatureUnitEnums.Celsius
+        | TemperatureUnitEnums.Fahrenheit
+      >
+    ) => {
+      state.temperatureUnit = action.payload;
+    },
   },
 });
 
@@ -44,6 +56,7 @@ export const {
   changeLoadingState,
   setIsCityNotFound,
   setWeatherData,
+  changeTemperatureUnit,
 } = weatherSlice.actions;
 
 export default weatherSlice.reducer;

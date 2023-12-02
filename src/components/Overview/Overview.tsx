@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { welcomeMessage } from "@/constant";
+// import { welcomeMessage } from "@/constant";
 import { useAppSelector } from "@/redux/hooks/hook";
 import {
   Table,
@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import Loader from "../ui/Loader";
+import WelcomeSection from "../welcomeSection/WelcomeSection";
 
 const Overview = () => {
   const { data, isCityNotFound, isDataLoading } =
@@ -37,13 +38,7 @@ const Overview = () => {
         <>
           {data === null ? (
             <>
-              <div className="flex items-center justify-center">
-                {" "}
-                <h1 className="text-3xl font-bold">
-                  {welcomeMessage}{" "}
-                </h1>{" "}
-              </div>
-              ;
+              <WelcomeSection />
             </>
           ) : (
             <div className="w-[90%] mx-auto">
