@@ -12,6 +12,11 @@ import {
 } from "lucide-react";
 import DataLoading from "./Loading";
 import { TemperatureUnitEnums } from "@/enums/TemperatureUnit";
+import { motion } from "framer-motion";
+import {
+  slideInFromLeft,
+  slideInFromTop,
+} from "@/lib/motion";
 
 const Overview = ({
   data,
@@ -33,30 +38,47 @@ const Overview = ({
       ) : (
         <>
           {" "}
-          <div className="grid grid-cols-12 w-full  gap-5 ">
-            <div className="col-span-12 md:col-span-3">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-12 w-full  gap-5 "
+          >
+            <motion.div
+              variants={slideInFromLeft(0.5)}
+              className="col-span-12 md:col-span-3"
+            >
               <div className="border-2 bg-gray-50 dark:bg-gray-900 rounded-md p-7">
-                <img
+                <motion.img
+                  variants={slideInFromTop}
                   src={data?.current?.condition?.icon}
                   alt="condition_IMAGE"
                   className="h-28 w-28 -mt-2"
                 />
 
-                <h2 className="text-3xl font-semibold mt-3 mb-1">
+                <motion.h2
+                  variants={slideInFromTop}
+                  className="text-3xl font-semibold mt-3 mb-1"
+                >
                   {temperatureUnit ===
                   TemperatureUnitEnums.Celsius ? (
                     <>{`${data?.current?.temp_c}° C `}</>
                   ) : (
                     <> {`${data?.current?.temp_f} ° F `} </>
                   )}
-                </h2>
+                </motion.h2>
 
-                <p className="font-medium mb-3">
+                <motion.p
+                  variants={slideInFromTop}
+                  className="font-medium mb-3"
+                >
                   {data?.current?.condition?.text}
-                </p>
+                </motion.p>
                 <hr className="border border-gray-950" />
 
-                <div className="mt-2 space-y-3">
+                <motion.div
+                  variants={slideInFromTop}
+                  className="mt-2 space-y-3"
+                >
                   <div className="flex items-center font-medium">
                     <MapPin size={20} />
                     <p className="ml-2">
@@ -71,13 +93,19 @@ const Overview = ({
                       {data?.location?.localtime}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
-            <div className=" col-span-12  md:col-span-9 ">
+            </motion.div>
+            <motion.div
+              variants={slideInFromLeft(0.5)}
+              className=" col-span-12  md:col-span-9 "
+            >
               <div className="grid grid-cols-12 gap-8">
                 <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
-                  <div className="flex space-x-5 items-center justify-start">
+                  <motion.div
+                    variants={slideInFromTop}
+                    className="flex space-x-5 items-center justify-start"
+                  >
                     <div>
                       <Wind size={50} />
                     </div>
@@ -91,10 +119,13 @@ const Overview = ({
                         <span>Km/h</span>
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
-                  <div className="flex space-x-5 items-center justify-start">
+                  <motion.div
+                    variants={slideInFromTop}
+                    className="flex space-x-5 items-center justify-start"
+                  >
                     <div>
                       <Droplets size={50} />
                     </div>
@@ -107,10 +138,13 @@ const Overview = ({
                         {data?.current?.humidity}%
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
-                  <div className="flex space-x-5 items-center justify-start">
+                  <motion.div
+                    variants={slideInFromTop}
+                    className="flex space-x-5 items-center justify-start"
+                  >
                     <div>
                       <Gauge size={50} />
                     </div>
@@ -123,10 +157,13 @@ const Overview = ({
                         {data?.current?.pressure_mb} hPa
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
-                  <div className="flex space-x-5 items-center justify-start">
+                  <motion.div
+                    variants={slideInFromTop}
+                    className="flex space-x-5 items-center justify-start"
+                  >
                     <div>
                       <ArrowUpRightFromCircle size={50} />
                     </div>
@@ -139,10 +176,13 @@ const Overview = ({
                         {data?.current?.wind_dir}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
-                  <div className="flex space-x-5 items-center justify-start">
+                  <motion.div
+                    variants={slideInFromTop}
+                    className="flex space-x-5 items-center justify-start"
+                  >
                     <div>
                       <Sunrise size={50} />
                     </div>
@@ -158,10 +198,13 @@ const Overview = ({
                         }
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-span-12 md:col-span-4 p-10 bg-gray-50 dark:bg-gray-900 rounded-md">
-                  <div className="flex space-x-5 items-center justify-start">
+                  <motion.div
+                    variants={slideInFromTop}
+                    className="flex space-x-5 items-center justify-start"
+                  >
                     <div>
                       <Sunset size={50} />
                     </div>
@@ -177,11 +220,11 @@ const Overview = ({
                         }
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </>
       )}
     </div>
