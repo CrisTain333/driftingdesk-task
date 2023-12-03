@@ -24,9 +24,13 @@ export default defineConfig(({ mode }) => {
         "@": path.resolve(__dirname, "./src"),
       },
     },
-    preview: {
-      host: true,
-      port: 3000,
+    server: {
+      watch: {
+        usePolling: true,
+      },
+      host: true, // needed for the Docker
+      strictPort: true,
+      port: 5173,
     },
   };
 });

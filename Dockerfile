@@ -5,7 +5,7 @@ FROM node:18-alpine
 WORKDIR /usr/app
 
 # Copy the application files to the working directory
-COPY . .
+COPY package.json .
 
 # Install musl-utils to provide /bin/sh
 RUN apk --no-cache add musl-utils
@@ -13,11 +13,14 @@ RUN apk --no-cache add musl-utils
 # Install app dependencies
 RUN npm install
 
+COPY . .
+
 # Run the build script
 RUN npm run build
 
 # Expose the port on which the application will run
-EXPOSE 3000
+EXPOSE 5173
 
 # Specify the command to run the application
 CMD ["npm", "run","preview"]
+
