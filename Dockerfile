@@ -10,6 +10,16 @@ COPY package.json .
 # Install musl-utils to provide /bin/sh
 RUN apk --no-cache add musl-utils
 
+# Copy the environment file
+COPY .env .env
+
+# Set environment variables during build
+ARG BASE_URL
+ARG API_KEY
+
+ENV BASE_URL ${BASE_URL:-'https://api.weatherapi.com/v1'}
+ENV API_KEY $API_KEY
+
 # Install app dependencies
 RUN npm install
 
