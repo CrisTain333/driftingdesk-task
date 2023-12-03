@@ -11,7 +11,7 @@ COPY package.json .
 RUN apk --no-cache add musl-utils
 
 # Copy the environment file
-COPY .env .env
+COPY .env.local .env.local
 
 # Set environment variables during build
 ARG BASE_URL
