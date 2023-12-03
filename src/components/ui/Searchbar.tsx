@@ -97,12 +97,14 @@ const SearchBar = () => {
           <Input
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="City name"
+            placeholder="enter city name"
             className="w-[35vw]  md:w-[30vw]"
           />
           <Button
             type="submit"
             disabled={isLoading}
+            variant={"default"}
+            size={"sm"}
           >
             Search
           </Button>
