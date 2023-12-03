@@ -30,14 +30,12 @@ export const weatherSlice = createSlice({
       state,
       action: PayloadAction<boolean>
     ) => {
-      console.log(action);
       state.isDataLoading = action.payload;
     },
     setIsCityNotFound: (
       state,
       action: PayloadAction<boolean>
     ) => {
-      console.log(action);
       state.isCityNotFound = action.payload;
     },
     changeTemperatureUnit: (
